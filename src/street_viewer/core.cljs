@@ -1,20 +1,9 @@
 (ns street-viewer.core
-  (:require [reagent.core :as reagent :refer [atom]]))
+  (:require [reagent.core :as reagent]))
 
 (enable-console-print!)
 
-(println "This text is printed from src/street-viewer/core.cljs. Go ahead and edit it and see reloading in action.")
-
-;; define your app data so that it doesn't get over-written on reload
-
-(defonce app-state (atom {:text "Hello world!"}))
-
-(defn hello-world []
-  [:h1 (:text @app-state)])
-
-(reagent/render-component [hello-world]
-                          (. js/document (getElementById "app")))
+(defonce app-state (reagent/atom {:text "Hello world!"}))
 
 (defn on-js-reload []
-  (swap! app-state update-in [:__figwheel_counter] inc)
-)
+  (swap! app-state update-in [:__figwheel_counter] inc))
