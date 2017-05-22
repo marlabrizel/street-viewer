@@ -5,5 +5,11 @@
 
 (defonce app-state (reagent/atom {:text "Hello world!"}))
 
+(defn map-view
+  []
+  [:div.map-view
+   [:div
+     (@app-state :text)]])
+
 (defn on-js-reload []
   (swap! app-state update-in [:__figwheel_counter] inc))
