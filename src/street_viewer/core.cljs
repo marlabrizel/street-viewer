@@ -11,5 +11,8 @@
    [:div
      (@app-state :text)]])
 
+(reagent/render-component [map-view]
+                          (. js/document (getElementById "app")))
+
 (defn on-js-reload []
   (swap! app-state update-in [:__figwheel_counter] inc))
