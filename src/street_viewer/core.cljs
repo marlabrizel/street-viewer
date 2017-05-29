@@ -5,6 +5,19 @@
 
 (defonce app-state (reagent/atom {:street "" :city ""}))
 
+(def base-url
+  "http://maps.googleapis.com/maps/api/streetview?size=600x400&location=")
+
+(defn address-url
+  [street city]
+  (str street ", " city))
+
+(defn street-view-url
+  "Takes a street and a city and returns a fully formed URL that can be used to
+   make a call to the Google Street View API"
+  [street city]
+  (str base-url (address-url street city) "&key=" api-key))
+
 (defn map-view
   []
   [:div.map-view
