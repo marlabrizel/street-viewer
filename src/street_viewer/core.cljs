@@ -12,6 +12,11 @@
   [street city]
   (str street ", " city))
 
+(def api-key
+  (.get (js/URLSearchParams.
+          js/document.location.search)
+        "api-key"))
+
 (defn street-view-url
   "Takes a street and a city and returns a fully formed URL that can be used to
    make a call to the Google Street View API"
