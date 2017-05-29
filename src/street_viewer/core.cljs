@@ -3,7 +3,7 @@
 
 (enable-console-print!)
 
-(defonce app-state (reagent/atom {:text "Hello world!"}))
+(defonce app-state (reagent/atom {:street "" :city ""}))
 
 (defn map-view
   []
