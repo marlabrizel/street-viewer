@@ -8,8 +8,9 @@
 (defn map-view
   []
   [:div.map-view
-   [:div
-     (@app-state :text)]])
+   [:p "Street: "]
+   [:p "City: "]
+   [:img {:src "http://cdn.earthporm.com/wp-content/uploads/2015/10/proud-mommies-2__605.jpg"}]])
 
 (reagent/render-component [map-view]
                           (. js/document (getElementById "app")))
