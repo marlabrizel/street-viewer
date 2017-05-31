@@ -40,9 +40,9 @@
 (defn map-view
   []
   [:div.map-view
-   [:p "Street: "]
-   [:p "City: "]
-   [:img {:src "http://cdn.earthporm.com/wp-content/uploads/2015/10/proud-mommies-2__605.jpg"}]])
+   [:p "Street: " [input :street]]
+   [:p "City: " [input :city]]
+   [:img {:src (street-view-url (@app-state :street) (@app-state :city))}]])
 
 (reagent/render-component [map-view]
                           (. js/document (getElementById "app")))
