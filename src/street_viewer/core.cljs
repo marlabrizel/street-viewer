@@ -23,6 +23,16 @@
   [street city]
   (str base-url (address-url street city) "&key=" api-key))
 
+(defn input
+  "A form component with an on-change listener that updates an atom
+   based on user input"
+  [k]
+  [:input {:value (@app-state k)
+           :on-change #(swap!
+                         app-state
+                         assoc k
+                         (-> % .-target .-value))}])
+
 (defn map-view
   []
   [:div.map-view
