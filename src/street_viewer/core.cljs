@@ -23,15 +23,19 @@
   [street city]
   (str base-url (address-url street city) "&key=" api-key))
 
+(defn save-input-state!
+  [state-key event]
+  (let [input-value (.-value (.-target event))]
+    (swap!
+      app-state
+      assoc state-key input-value)))
+
 (defn input
   "A form component with an on-change listener that updates an atom
    based on user input"
-  [k]
-  [:input {:value (@app-state k)
-           :on-change #(swap!
-                         app-state
-                         assoc k
-                         (.-value (.-target %)))}])
+  [state-key]
+  [:input {:value (get @app-state state-key)
+           :on-change (partial save-input-state! state-key)}])
 
 (defn map-view
   []
