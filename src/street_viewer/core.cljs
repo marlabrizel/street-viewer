@@ -31,7 +31,7 @@
            :on-change #(swap!
                          app-state
                          assoc k
-                         (-> % .-target .-value))}])
+                         (.-value (.-target %)))}])
 
 (defn map-view
   []
