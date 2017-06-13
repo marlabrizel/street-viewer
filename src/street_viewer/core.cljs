@@ -16,6 +16,8 @@
   (.get (js/URLSearchParams.
           js/document.location.search)
         "api-key"))
+;; params = new URLSearchParams(document.location.search)
+;; params.get("api-key")
 
 (defn street-view-url
   "Takes a street and a city and returns a fully formed URL that can be used to
