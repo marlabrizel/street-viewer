@@ -14,6 +14,14 @@ a simple demo project for my ClojureScript for JavaScript programmers workshop a
 
 ## Setup
 
+#### ClojureScript Prerequisites
+- Java (recommend OpenJDK 8; as of early 2018 Java 9/10 don't work well with
+  other deps)
+- Leiningen - `brew install leiningen` or see the [Leiningen
+  docs](https://leiningen.org/) for other suggestions
+
+#### Project Prerequisites
+
 You will need an [API key](https://developers.google.com/maps/documentation/streetview/get-api-key) for the Google Street View Image API. You may wish
 to consider restricting the key via the Google API Console in some way to prevent unauthorized usage.
 
